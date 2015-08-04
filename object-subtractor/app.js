@@ -28,15 +28,18 @@ var womens = [
 
 
 function object_subtractor (minuend, subtrahend, comparator) {
-	var difference = [];
-	var minuendLength = minuend.length;
-	var subtrahendLength = subtrahend.length;
+	var difference = [],
+		minuendLength = minuend.length,
+		subtrahendLength = subtrahend.length,
+		minuendIndex = 0,
+		subtrahendIndex = 0,
+		minuendElement = {};
 
-	initialLoop: for (var minuendIndex = 0; minuendIndex < minuendLength; minuendIndex++) {
-		var minuendElement = minuend[minuendIndex];
+	initialLoop: for (minuendIndex; minuendIndex < minuendLength; minuendIndex++) {
+		minuendElement = minuend[minuendIndex];
 
-		for (var subtrahendIndex = 0; subtrahendIndex < subtrahendLength; subtrahendIndex++) {
-			if ( comparator(minuendElement, subtrahend[subtrahendIndex]) ) {
+		for (subtrahendIndex; subtrahendIndex < subtrahendLength; subtrahendIndex++) {
+			if (comparator(minuendElement, subtrahend[subtrahendIndex])) {
 				continue initialLoop;
 			}
 		}
@@ -46,7 +49,7 @@ function object_subtractor (minuend, subtrahend, comparator) {
 	return difference;
 };
 
-var people = object_subtractor(dqdovci, babi, function(men, women) {
+var people = object_subtractor(mens, womens, function(men, women) {
 	return men.id === women.id;
 });
 
