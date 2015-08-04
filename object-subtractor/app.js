@@ -35,10 +35,10 @@ function object_subtractor (minuend, subtrahend, comparator) {
 		subtrahendIndex = 0,
 		minuendElement = {};
 
-	initialLoop: for (minuendIndex; minuendIndex < minuendLength; minuendIndex++) {
+	initialLoop: for (minuendIndex = 0; minuendIndex < minuendLength; minuendIndex++) {
 		minuendElement = minuend[minuendIndex];
 
-		for (subtrahendIndex; subtrahendIndex < subtrahendLength; subtrahendIndex++) {
+		for (subtrahendIndex = 0; subtrahendIndex < subtrahendLength; subtrahendIndex++) {
 			if (comparator(minuendElement, subtrahend[subtrahendIndex])) {
 				continue initialLoop;
 			}
